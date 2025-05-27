@@ -1,0 +1,124 @@
+{
+  "name": "bluesky-scraper",
+  "version": "1.0.0",
+  "description": "Scalable Bluesky AT Protocol scraper for large-scale data extraction",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape:users": "node scripts/run_users_scraper.js",
+    "scrape:posts": "node scripts/run_posts_scraper.js",
+    "scrape:followers": "node scripts/run_followers_scraper.js",
+    "scrape:user-info": "node scripts/run_user_info.js",
+    "scrape:post-info": "node scripts/run_post_info.js",
+    "test": "jest",
+    "test:users": "jest tests/users_scraper.test.js",
+    "test:posts": "jest tests/posts_scraper.test.js",
+    "test:followers": "jest tests/followers_scraper.test.js",
+    "test:sample": "jest tests/sample.test.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/ scripts/ tests/",
+    "lint:fix": "eslint src/ scripts/ tests/ --fix",
+    "setup": "node scripts/setup.js",
+    "benchmark": "node scripts/benchmark.js",
+    "proxy": "node scripts/proxy_manager_cli.js",
+    "proxy:add": "node scripts/proxy_manager_cli.js add",
+    "proxy:list": "node scripts/proxy_manager_cli.js list",
+    "proxy:stats": "node scripts/proxy_manager_cli.js stats",
+    "proxy:health": "node scripts/proxy_manager_cli.js health",
+    "proxy:test": "node scripts/proxy_manager_cli.js test"
+  },
+  "keywords": [
+    "bluesky",
+    "scraper",
+    "at-protocol",
+    "social-media",
+    "data-extraction",
+    "web-scraping"
+  ],
+  "author": "Bluesky Scraper Team",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bloom-filters": "^3.0.1",
+    "bottleneck": "^2.19.5",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "https-proxy-agent": "^7.0.2",
+    "joi": "^17.11.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "ora": "^7.0.1",
+    "p-queue": "^8.0.1",
+    "p-retry": "^6.2.0",
+    "progress": "^2.0.3",
+    "redis": "^4.6.10",
+    "socks-proxy-agent": "^8.0.2",
+    "tunnel": "^0.0.6",
+    "user-agents": "^1.0.1235",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/bluesky-scraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/bluesky-scraper/issues"
+  },
+  "homepage": "https://github.com/your-org/bluesky-scraper#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ],
+    "env": {
+      "node": true,
+      "es2022": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "prefer-const": "error",
+      "no-unused-vars": "error"
+    }
+  }
+}
